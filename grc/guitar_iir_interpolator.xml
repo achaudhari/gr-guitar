@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<block>
+  <name>Interpolating IIR Filter</name>
+  <key>guitar_iir_interpolator</key>
+  <category>[Guitar Effects]</category>
+  <import>import guitar</import>
+  <make>guitar.iir_interpolator($interpolation, $fftaps, $fbtaps)</make>
+  <callback>set_taps($fftaps, $fbtaps)</callback>
+
+  <param>
+    <name>Interpolation</name>
+    <key>interpolation</key>
+    <value>1</value>
+    <type>int</type>
+  </param>
+
+  <param>
+    <name>Feed-forward Taps</name>
+    <key>fftaps</key>
+    <value>[1.0]</value>
+    <type>real_vector</type>
+  </param>
+
+  <param>
+    <name>Feedback Taps</name>
+    <key>fbtaps</key>
+    <value>[0.0]</value>
+    <type>real_vector</type>
+  </param>
+
+  <sink>
+    <name>in</name>
+    <type>float</type>
+  </sink>
+
+  <source>
+    <name>out</name>
+    <type>float</type>
+  </source>
+
+</block>

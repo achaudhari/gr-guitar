@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<block>
+  <name>Distortion</name>
+  <key>guitar_distortion</key>
+  <category>[Guitar Effects]</category>
+  <import>import guitar</import>
+  <make>guitar.distortion($enabled, $dist_func, $boost, $wet_gamma)</make>
+
+  <callback>set_enabled($enabled)</callback>
+  <callback>set_dist_func($dist_func)</callback>
+  <callback>set_boost($boost)</callback>
+  <callback>set_wet_gamma($wet_gamma)</callback>
+
+  <!-- Block Parameters -->  
+  <param>
+    <name>Enabled</name>
+    <key>enabled</key>
+    <value>True</value>
+    <type>bool</type>
+    <option><name>Enabled</name><key>True</key></option>
+    <option><name>Bypassed</name><key>False</key></option>
+  </param>
+
+  <param>
+    <name>Distortion Function</name>
+    <key>dist_func</key>
+    <value>L</value>
+    <type>string</type>
+    <option><name>Linear</name><key>L</key></option>
+    <option><name>Quadratic</name><key>Q</key></option>
+    <option><name>Exponential</name><key>E</key></option>
+    <option><name>Inverse</name><key>I</key></option>
+    <option><name>Sine</name><key>S</key></option>
+  </param>
+
+  <param>
+    <name>Boost</name>
+    <key>boost</key>
+    <value>2.0</value>
+    <type>real</type>
+  </param>
+
+  <param>
+    <name>Wet-Dry Mix (gamma)</name>
+    <key>wet_gamma</key>
+    <value>0.5</value>
+    <type>real</type>
+  </param>
+
+  <!-- Block Ports -->  
+  <sink>
+    <name>in</name>
+    <type>float</type>
+    <nports>1</nports>
+  </sink>
+
+  <source>
+    <name>out</name>
+    <type>float</type>
+    <nports>1</nports>
+  </source>
+</block>

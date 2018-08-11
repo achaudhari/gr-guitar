@@ -1,0 +1,7 @@
+/*!
+ * \defgroup block GNU Radio GUITAR C++ Signal Processing Blocks
+ * \brief All C++ blocks that can be used from the GUITAR GNU Radio
+ *        module are listed here or in the subcategories below.
+ *
+ */
+

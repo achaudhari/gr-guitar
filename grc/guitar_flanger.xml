@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<block>
+  <name>Flanger</name>
+  <key>guitar_flanger</key>
+  <category>[Guitar Effects]</category>
+  <import>import guitar</import>
+  <make>guitar.flanger($enabled, $samp_rate, $max_delay, $lfo_freq, $wet_gamma)</make>
+
+  <callback>set_enabled($enabled)</callback>
+  <callback>set_lfo_freq($lfo_freq)</callback>
+  <callback>set_wet_gamma($wet_gamma)</callback>
+
+  <!-- Block Parameters -->  
+  <param>
+    <name>Enabled</name>
+    <key>enabled</key>
+    <value>True</value>
+    <type>bool</type>
+    <option><name>Enabled</name><key>True</key></option>
+    <option><name>Bypassed</name><key>False</key></option>
+  </param>
+
+  <param>
+    <name>Sample Rate (Hz)</name>
+    <key>samp_rate</key>
+    <value>samp_rate</value>
+    <type>real</type>
+  </param>
+
+  <param>
+    <name>Max Delay (s)</name>
+    <key>max_delay</key>
+    <value>0.020</value>
+    <type>real</type>
+  </param>
+
+  <param>
+    <name>LFO Frequency (Hz)</name>
+    <key>lfo_freq</key>
+    <value>1.0</value>
+    <type>real</type>
+  </param>
+
+  <param>
+    <name>Wet-Dry Mix (gamma)</name>
+    <key>wet_gamma</key>
+    <value>0.5</value>
+    <type>real</type>
+  </param>
+
+  <!-- Block Ports -->  
+  <sink>
+    <name>in</name>
+    <type>float</type>
+    <nports>1</nports>
+  </sink>
+
+  <source>
+    <name>out</name>
+    <type>float</type>
+    <nports>1</nports>
+  </source>
+
+
+</block>

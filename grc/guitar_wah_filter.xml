@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<block>
+  <name>Wah-Wah Filter</name>
+  <key>guitar_wah_filter</key>
+  <category>[Guitar Effects]</category>
+  <import>import guitar</import>
+  <make>guitar.wah_filter($enabled, $samp_rate, $envelope_src, $cutoff_freq_min, $cutoff_freq_max, $lfo_freq, $damp)</make>
+
+  <callback>set_enabled($enabled)</callback>
+  <callback>set_envelope_src($envelope_src)</callback>
+  <callback>set_cutoff_freq_min($cutoff_freq_min)</callback>
+  <callback>set_cutoff_freq_max($cutoff_freq_max)</callback>
+  <callback>set_lfo_freq($lfo_freq)</callback>
+  <callback>set_damp($damp)</callback>
+
+  <!-- Block Parameters -->  
+  <param>
+    <name>Enabled</name>
+    <key>enabled</key>
+    <value>True</value>
+    <type>bool</type>
+    <option><name>Enabled</name><key>True</key></option>
+    <option><name>Bypassed</name><key>False</key></option>
+  </param>
+
+  <param>
+    <name>Sample Rate (Hz)</name>
+    <key>samp_rate</key>
+    <value>samp_rate</value>
+    <type>real</type>
+  </param>
+
+  <param>
+    <name>Envelope Source</name>
+    <key>envelope_src</key>
+    <value>L</value>
+    <type>string</type>
+    <option><name>LFO</name><key>L</key></option>
+    <option><name>Sidechain</name><key>S</key></option>
+  </param>
+
+  <param>
+    <name>Min Cutoff Frequency (Hz)</name>
+    <key>cutoff_freq_min</key>
+    <value>750.0</value>
+    <type>real</type>
+  </param>
+
+  <param>
+    <name>Max Cutoff Frequency (Hz)</name>
+    <key>cutoff_freq_max</key>
+    <value>2500.0</value>
+    <type>real</type>
+  </param>
+
+  <param>
+    <name>LFO Frequency (Hz)</name>
+    <key>lfo_freq</key>
+    <value>0.5</value>
+    <type>real</type>
+  </param>
+
+  <param>
+    <name>Damping Factor</name>
+    <key>damp</key>
+    <value>0.3</value>
+    <type>real</type>
+  </param>
+
+  <!-- Block Ports -->  
+  <sink>
+    <name>in</name>
+    <type>float</type>
+    <nports>#if $envelope_src() == "S" then 2 else 1#</nports>
+  </sink>
+  <source>
+    <name>out</name>
+    <type>float</type>
+    <nports>1</nports>
+  </source>
+</block>

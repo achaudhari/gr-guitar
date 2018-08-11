@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<block>
+  <name>Shelving Filter</name>
+  <key>guitar_shelving_filter</key>
+  <category>[Guitar Effects]</category>
+  <import>import guitar</import>
+  <make>guitar.shelving_filter($samp_rate, $type, $gain, $cutoff_freq)</make>
+
+  <callback>set_type($type)</callback>
+  <callback>set_gain($gain)</callback>
+  <callback>set_cutoff_freq($cutoff_freq)</callback>
+
+  <param>
+    <name>Sample Rate (Hz)</name>
+    <key>samp_rate</key>
+    <value>samp_rate</value>
+    <type>real</type>
+  </param>
+
+  <param>
+    <name>Filter Type</name>
+    <key>type</key>
+    <value>low-shelf</value>
+    <type>string</type>
+    <option><name>Low-Shelf</name><key>low-shelf</key></option>
+    <option><name>High-Shelf</name><key>high-shelf</key></option>
+  </param>
+
+  <param>
+    <name>Passband Gain (dB)</name>
+    <key>gain</key>
+    <value>0.0</value>
+    <type>real</type>
+  </param>
+
+  <param>
+    <name>Cutoff Frequency (Hz)</name>
+    <key>cutoff_freq</key>
+    <value>1000.0</value>
+    <type>real</type>
+  </param>
+
+  <sink>
+    <name>in</name>
+    <type>float</type>
+  </sink>
+  <source>
+    <name>out</name>
+    <type>float</type>
+  </source>
+</block>
