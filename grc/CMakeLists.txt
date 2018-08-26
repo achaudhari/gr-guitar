@@ -23,5 +23,6 @@ install(FILES
     guitar_shelving_filter.xml
     guitar_distortion.xml
     guitar_wah_filter.xml
-    guitar_flanger.xml DESTINATION share/gnuradio/grc/blocks
+    guitar_flanger.xml
+    guitar_reverb.xml DESTINATION share/gnuradio/grc/blocks
 )

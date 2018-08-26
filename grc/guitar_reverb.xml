@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<block>
+  <name>Reverb</name>
+  <key>guitar_reverb</key>
+  <category>[Guitar Effects]</category>
+  <import>import guitar</import>
+  <make>guitar.reverb($enabled, $samp_rate, $comb_coeff_mode, $allpass_coeff_mode, $wet_gamma)</make>
+
+  <callback>set_enabled($enabled)</callback>
+  <callback>set_comb_coeff_mode($comb_coeff_mode)</callback>
+  <callback>set_allpass_coeff_mode($allpass_coeff_mode)</callback>
+  <callback>set_wet_gamma($wet_gamma)</callback>
+
+  <!-- Block Parameters -->  
+  <param>
+    <name>Enabled</name>
+    <key>enabled</key>
+    <value>True</value>
+    <type>bool</type>
+    <option><name>Enabled</name><key>True</key></option>
+    <option><name>Bypassed</name><key>False</key></option>
+  </param>
+
+  <param>
+    <name>Sample Rate (Hz)</name>
+    <key>samp_rate</key>
+    <value>samp_rate</value>
+    <type>real</type>
+  </param>
+
+  <param>
+    <name>Comb Coefficient Mode</name>
+    <key>comb_coeff_mode</key>
+    <value>P</value>
+    <type>string</type>
+    <option><name>Profile1</name><key>P</key></option>
+    <option><name>Randomized</name><key>R</key></option>
+  </param>
+
+  <param>
+    <name>Allpass Coefficient Mode</name>
+    <key>allpass_coeff_mode</key>
+    <value>P</value>
+    <type>string</type>
+    <option><name>Profile1</name><key>P</key></option>
+    <option><name>Randomized</name><key>R</key></option>
+  </param>
+
+  <param>
+    <name>Wet-Dry Mix (gamma)</name>
+    <key>wet_gamma</key>
+    <value>0.3</value>
+    <type>real</type>
+  </param>
+
+  <sink>
+    <name>in</name>
+    <type>float</type>
+  </sink>
+  <source>
+    <name>out</name>
+    <type>float</type>
+  </source>
+</block>

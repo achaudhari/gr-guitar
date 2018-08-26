@@ -28,5 +28,6 @@ install(FILES
     shelving_filter.h
     distortion.h
     wah_filter.h
-    flanger.h DESTINATION include/guitar
+    flanger.h
+    reverb.h DESTINATION include/guitar
 )

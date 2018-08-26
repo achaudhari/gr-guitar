@@ -25,7 +25,6 @@ include(GrPlatform) #define LIB_SUFFIX
 
 include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIRS})
-
 list(APPEND guitar_sources
     iir_interpolator_impl.cc
     iir_decimator_impl.cc
@@ -33,7 +32,7 @@ list(APPEND guitar_sources
     distortion_impl.cc
     wah_filter_impl.cc
     flanger_impl.cc
-)
+    reverb_impl.cc )
 
 set(guitar_sources "${guitar_sources}" PARENT_SCOPE)
 if(NOT guitar_sources)
