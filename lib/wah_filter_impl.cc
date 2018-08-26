@@ -57,7 +57,7 @@ namespace gr {
         gr::io_signature::make(1, 2, sizeof(float)),
         gr::io_signature::make(1, 1, sizeof(float))),
         d_samp_rate(samp_rate), d_use_sidechain(envelope_src == "S"),
-        d_enabled(true),
+        d_enabled(enabled),
         d_cutoff_freq_min(cutoff_freq_min), d_cutoff_freq_max(cutoff_freq_max),
         d_lfo_freq(lfo_freq), d_damp(damp),
         d_y_lp(0.0), d_y_bp(0.0), d_y_hp(0.0),
