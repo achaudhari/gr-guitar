@@ -40,6 +40,8 @@ namespace gr {
       distortion_impl(bool enabled, std::string dist_func, double boost, double wet_gamma);
       ~distortion_impl();
 
+      float wrap_and_clip(float x);
+
       void set_enabled(bool enabled);
       void set_dist_func(std::string dist_func);
       void set_boost(double boost);

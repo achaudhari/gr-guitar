@@ -76,7 +76,7 @@ namespace gr {
         };
       } else if (dist_func == "E") {
         d_dist_func = [](const float& x) -> float {
-          return ((1.0 - exp(-1.0 * x)) / exp(0.5));
+          return ((1.0 - exp(-1.0 * x)) / exp(-0.5));
         };
       } else if (dist_func == "I") {
         d_dist_func = [](const float& x) -> float {
@@ -89,6 +89,14 @@ namespace gr {
       } else {
         throw std::invalid_argument("distortion: Distortion function not supported.");
       }
+    }
+
+    float
+    distortion_impl::wrap_and_clip(float x)
+    {
+        const float sign = (x >= 0.0) ? 1.0 : -1.0;
+        const float dist_x = (abs(x) * d_boost < 1.0) ? d_dist_func(abs(x) * d_boost) : 1.0;
+        return (sign * std::min<float>(dist_x, 1.0));
     }
 
     void
@@ -113,8 +121,7 @@ namespace gr {
       for (int i = 0; i < noutput_items; i++) {
         const float dry = in[i];
         const float sign = (dry >= 0.0) ? 1.0 : -1.0;
-        const float wet = sign * std::min<float>(d_dist_func(abs(dry) * d_boost), 1.0);
-        out[i] = d_enabled ? (d_wet_gamma*wet + (1-d_wet_gamma)*dry) : dry;
+        out[i] = d_enabled ? (d_wet_gamma*wrap_and_clip(dry) + (1-d_wet_gamma)*dry) : dry;
       }
 
       return noutput_items;
