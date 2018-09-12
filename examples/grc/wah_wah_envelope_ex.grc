@@ -2451,7 +2451,7 @@ os.chdir(script_path)</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(46, 326)</value>
+      <value>(53, 326)</value>
     </param>
     <param>
       <key>_rotation</key>
