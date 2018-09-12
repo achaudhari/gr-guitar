@@ -138,8 +138,8 @@ namespace gr {
         d_y_hp = in[i] - d_y_lp - (Qval * d_y_bp);
         d_y_bp = (Fval * d_y_hp) + d_y_bp;
         d_y_lp = (Fval * d_y_bp) + d_y_lp;
-        // Output is the bandpass output of the SVF
-        out[i] = d_enabled ? static_cast<float>(d_y_bp) : in[i];
+        // Output is the bandpass + lowpass output of the SVF
+        out[i] = d_enabled ? static_cast<float>((d_y_bp + d_y_lp) / 2.0) : in[i];
       }
 
       return noutput_items;
